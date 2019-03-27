@@ -12,6 +12,5 @@ module.exports = class Letter{
         this.breedte = this.font.Size.Dx;
         this.hoogte = this.font.Size.Dy;
     }
-
-
 };
+
