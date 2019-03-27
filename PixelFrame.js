@@ -58,5 +58,9 @@ module.exports = class PixelFrame{
       this.kleurPixel(x,y,0,wiel_positie*3,255-wiel_positie,brightness)
     }      
   }
+
+  setPixelLijst(pixelLijst){
+    
+  }
 };
 
