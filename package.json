@@ -1,0 +1,11 @@
+{
+  "name": "PixelFrame",
+  "version": "1.0.0",
+  "description": "Project Embedded system PixelFrame based on APA102C",
+  "main": "PixelFrame.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Korneel Van den Ecker",
+  "license": "ISC"
+}
