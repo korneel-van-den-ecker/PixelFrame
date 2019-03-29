@@ -10,33 +10,42 @@ module.exports = class PixelFrame{
   constructor(breedte,hoogte){
     this.breedte = breedte;
     this.hoogte = hoogte;
-    this.ledDriver = new Apa102spi(breedte*hoogte);
+    this.ledDriver = new Apa102spi(breedte*hoogte,800);
+    console.log(this.ledDriver);
   }
 
-  kleurVolledigFrameMetWiel(kleur,brightness){
+  kleurVolledigFrameMetWiel(wielwaarde,brightness){
     var i,j;
     for(i=0;i<this.breedte;i++){
       for(j=0;j<this.hoogte;j++){
-        this.kleurPixelMetWiel(i,j,kleur,brightness);        
+        this.kleurPixelMetWiel(i,j,wielwaarde,brightness);        
       }
     }
   }
 
-  kleurVolledigFrame(r,g,b,brightness){
+  kleurVolledigFrame(kleur){
     var i,j;
     for(i=0;i<this.breedte;i++){
       for(j=0;j<this.hoogte;j++){
-        this.kleurPixel(i,j,r,g,b,brightness);        
+        this.kleurPixelColor(i,j,kleur);        
       }
     }
   }
 
-  kleurPixel(x,y,r,g,b,brightness){
+  kleurPixelColor(x,y,kleur){
     if(x%2 != 0){
       y = this.breedte -1 - y;
     }
     let nummer = ((x*this.breedte)+y);
-    this.ledDriver.setLedColor(nummer,brightness,r,g,b);
+    this.ledDriver.setLedColor(nummer,kleur.brightness,kleur.r,kleur.g,kleur.b);
+  };
+
+  kleurPixel(x,y,r,g,b,bright){
+    if(x%2 != 0){
+      y = this.breedte -1 - y;
+    }
+    let nummer = ((x*this.breedte)+y);
+    this.ledDriver.setLedColor(nummer,r,g,b,bright);
   }
 
   show(){

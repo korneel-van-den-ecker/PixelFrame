@@ -1,4 +1,5 @@
 var PixelFrame = require('./PixelFrame');
+var Color = require('./color');
 var fs = require('fs');
 const pf = new PixelFrame(16,16);
 
@@ -39,6 +40,10 @@ module.exports = class Letter{
         console.log(pixellijst);
         return pixellijst;
     };
+
+    show(){
+        this.pixelFrame.kleurPixel()
+    }
 
     
 };
