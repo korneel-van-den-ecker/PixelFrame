@@ -1,7 +1,9 @@
 var PixelFrame = require('./PixelFrame');
 
-const pf = new PixelFrame();
+const pf = new PixelFrame(16,16);
 console.log(pf.hoogte,pf.breedte);
+
+
 
 while(1){
     var i = getRandomInt(0,pf.breedte);

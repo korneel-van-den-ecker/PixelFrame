@@ -1,3 +1,9 @@
 var Letters = require('./letters.js')
+var PixelFrame = require('./PixelFrame');
 
-var letters = new Letters();
+const pf = new PixelFrame(16,16);
+
+var letters = new Letters(pf);
+console.log(letters.breedte);
+
+var tets = letters.VerkrijgPixelCharacter('a');

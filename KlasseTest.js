@@ -1,7 +1,6 @@
 var PixelFrame = require('./PixelFrame');
 
 const pf = new PixelFrame(16,16);
-console.log(pf.BREEDTE);
 var i;
 var j;
 var k;
