@@ -1,13 +1,16 @@
 
 var Apa102spi = require('apa102-spi')
+var Ledbitmap = require('./ledBitmap')
+var Color =require('./color');
 
 //Info over  klasses maken 
 //https://scotch.io/tutorials/better-javascript-with-es6-pt-ii-a-deep-dive-into-classes
 
+var _ledbitmap = new Ledbitmap(0,0);
 
 
 module.exports = class PixelFrame{
-  constructor(breedte,hoogte){
+  constructor(hoogte,breedte){
     this.breedte = breedte;
     this.hoogte = hoogte;
     this.ledDriver = new Apa102spi(breedte*hoogte,800);
@@ -16,8 +19,8 @@ module.exports = class PixelFrame{
 
   kleurVolledigFrameMetWiel(wielwaarde,brightness){
     var i,j;
-    for(i=0;i<this.breedte;i++){
-      for(j=0;j<this.hoogte;j++){
+    for(i=0;i<this.hoogte;i++){
+      for(j=0;j<this.breedte;j++){
         this.kleurPixelMetWiel(i,j,wielwaarde,brightness);        
       }
     }
@@ -25,8 +28,8 @@ module.exports = class PixelFrame{
 
   kleurVolledigFrame(kleur){
     var i,j;
-    for(i=0;i<this.breedte;i++){
-      for(j=0;j<this.hoogte;j++){
+    for(i=0;i<this.hoogte;i++){
+      for(j=0;j<this.breedte;j++){
         this.kleurPixelColor(i,j,kleur);        
       }
     }
@@ -34,18 +37,18 @@ module.exports = class PixelFrame{
 
   kleurPixelColor(x,y,kleur){
     if(x%2 != 0){
-      y = this.breedte -1 - y;
+      y = this.hoogte -1 - y;
     }
-    let nummer = ((x*this.breedte)+y);
+    let nummer = ((x*this.hoogte)+y);
     this.ledDriver.setLedColor(nummer,kleur.brightness,kleur.r,kleur.g,kleur.b);
   };
 
   kleurPixel(x,y,r,g,b,bright){
     if(x%2 != 0){
-      y = this.breedte -1 - y;
+      y = this.hoogte -1 - y;
     }
-    let nummer = ((x*this.breedte)+y);
-    this.ledDriver.setLedColor(nummer,r,g,b,bright);
+    let nummer = ((x*this.hoogte)+y);
+    this.ledDriver.setLedColor(nummer,bright,r,g,b);
   }
 
   show(){
@@ -67,9 +70,19 @@ module.exports = class PixelFrame{
       this.kleurPixel(x,y,0,wiel_positie*3,255-wiel_positie,brightness)
     }      
   }
+  //Anker bevind zich links boven van de figuur
+  setLedBitmap(ledbitmap, ankerHoogte = 0,ankerBreedte = 0){
+    var i,j;
+    console.log(ledbitmap);
+    for(i=0;i<ledbitmap.hoogte;i++){
+      
+      for(j=0;j<ledbitmap.breedte;j++){
 
-  setPixelLijst(pixelLijst){
-    
+       // if(ledbitmap[i][j] != new Color(0,0,0,1) )
+        this.kleurPixelColor(ankerHoogte + i, ankerBreedte + j,ledbitmap.pixellijst[i][j]);       
+       
+      }
+    }
   }
 };
 
