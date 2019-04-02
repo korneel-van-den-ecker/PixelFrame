@@ -14,7 +14,7 @@ module.exports = class LedBitmap{
         for(var i = 0; i < this.hoogte; i++){
             var str = bitmap[i];
             for(var j = 0; j < this.breedte; j++){
-                if(str[j] == 0){
+                if(str[j] == 0 | str[j] == "O"){
                     this.pixellijst[i][j] = kleur;
                 }
                 else{
@@ -23,6 +23,6 @@ module.exports = class LedBitmap{
             };
         };
         console.log(this.pixellijst);
-        return this.pixellijst;
-    }
+        return this;
+    };
 };  
