@@ -1,6 +1,7 @@
 var Letters = require('./letters.js')
 var PixelFrame = require('./PixelFrame');
 var LedBitmap = require('./ledBitmap');
+var Color =require('./color');
 
 const pf = new PixelFrame(16,16);
 
@@ -12,13 +13,18 @@ _ledBitmap = new LedBitmap();
 letterstest();
 
 async function letterstest(){
-
-    for(var i=50;i<127;++i){
-        pf.setLedBitmap(letters.VerkrijgCharacterLedBitmap(String.fromCharCode(i)),0,0);
-    pf.show();
-    await sleep(1000);
-    pf.blackout();
-    };
+    while(1){        
+            for(var i=52;i<127;++i){
+                for(var k = pf.breedte;k >=0;k--){
+                    //pf.kleurVolledigFrame(new Color(255,0,0,1));                    
+                    pf.setLedBitmap(letters.VerkrijgCharacterLedBitmap(String.fromCharCode(i),new Color(255,0,0,1)),0,k);  
+                    //pf.setLedBitmap(letters.VerkrijgCharacterLedBitmap(String.fromCharCode(i),new Color(255,0,0,1)),0,k)                  
+                    pf.show();
+                    await sleep(0);
+                    pf.blackout();  
+            }            
+        };           
+    }
   };
   
   function sleep(ms){

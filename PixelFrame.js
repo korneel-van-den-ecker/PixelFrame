@@ -14,7 +14,6 @@ module.exports = class PixelFrame{
     this.breedte = breedte;
     this.hoogte = hoogte;
     this.ledDriver = new Apa102spi(breedte*hoogte,800);
-    console.log(this.ledDriver);
   }
 
   kleurVolledigFrameMetWiel(wielwaarde,brightness){
@@ -75,21 +74,34 @@ module.exports = class PixelFrame{
       this.kleurPixel(x,y,0,wiel_positie*3,255-wiel_positie,brightness)
     }      
   }
+
+  static GetKleurVanWiel(wiel_positie,brightness){
+    if(wiel_positie > 255)
+      wiel_positie = 255; //Veiligheid
+    if( wiel_positie <0)
+      wiel_positie = 0;
+    if(wiel_positie<85)
+      return new Color(wiel_positie*3,255-wiel_positie*3,0,brightness);
+    else if(wiel_positie<170){
+      wiel_positie -= 85;
+      return new Color(255-wiel_positie*3,0,wiel_positie*3,brightness);
+    }
+    else if(wiel_positie <=255 ){
+      wiel_positie -= 170;
+      return new Color(0,wiel_positie*3,255-wiel_positie,brightness);
+    }      
+  }
+
   //Anker bevind zich links boven van de figuur
   setLedBitmap(ledbitmap = new ledbitmap(), ankerHoogte = 0,ankerBreedte = 0){
     var i,j;
-    console.log("joooooooooooooo");
-    console.log(ledbitmap);
-    console.log(ledbitmap.hoogte);
-    console.log(ledbitmap.breedte);
-    for(i=0;i<ledbitmap.hoogte;i++){      
-      console.log("joooooooooooooo");
+    for(i=0;i<ledbitmap.hoogte;i++){    
       for(j=0;j<ledbitmap.breedte;j++){
-       // if(ledbitmap[i][j] != new Color(0,0,0,1) )
-       console.log(`ankerbreedte : ${ankerBreedte}, ankerhoogte : ${ankerBreedte},kleur: ${ledbitmap.pixellijst[i][j]} `)
-       
-    
-        this.kleurPixelColor(ankerHoogte + i, ankerBreedte + j,ledbitmap.pixellijst[i][j]);              
+        var posHoogte = ankerHoogte + i;
+        var posBreedte= ankerBreedte + j;
+
+
+        this.kleurPixelColor(posHoogte,posBreedte ,ledbitmap.pixellijst[i][j]);              
       }
     }
   }

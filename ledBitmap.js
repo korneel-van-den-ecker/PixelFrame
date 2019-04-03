@@ -10,7 +10,7 @@ module.exports = class LedBitmap{
         };
     };
 
-    GetLedBitmapFromFont(bitmap,kleur = new Color(255,0,0,5)){
+    GetLedBitmapFromFont(bitmap,kleur){
         for(var i = 0; i < this.hoogte; i++){
             var str = bitmap[i];
             for(var j = 0; j < this.breedte; j++){
@@ -19,7 +19,7 @@ module.exports = class LedBitmap{
                 }
                 else{
                     this.pixellijst[i][j] = new Color(0,0,0,1);
-                }
+               }
             };
         };
         console.log(this.pixellijst);
