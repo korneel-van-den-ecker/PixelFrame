@@ -15,7 +15,6 @@ module.exports = class Letter{
         var charset =   this.font.CharSet.find(i => i.Character == karakter);
         if(charset != undefined){            
             var bitmap = charset.Bitmap      
-            console.log("je bent hier")
             // Het karakter opzoeken in de json en de bitmap setten
                       
             var ledBitmap = new LedBitmap(bitmap.length,bitmap[0].length); 

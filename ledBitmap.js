@@ -22,7 +22,6 @@ module.exports = class LedBitmap{
                }
             };
         };
-        console.log(this.pixellijst);
         return this;
     };
 };  

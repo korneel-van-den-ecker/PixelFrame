@@ -13,7 +13,7 @@ module.exports = class PixelFrame{
   constructor(hoogte,breedte){
     this.breedte = breedte;
     this.hoogte = hoogte;
-    this.ledDriver = new Apa102spi(breedte*hoogte,800);
+    this.ledDriver = new Apa102spi(breedte*hoogte,100);
   }
 
   kleurVolledigFrameMetWiel(wielwaarde,brightness){
@@ -99,8 +99,11 @@ module.exports = class PixelFrame{
       for(j=0;j<ledbitmap.breedte;j++){
         var posHoogte = ankerHoogte + i;
         var posBreedte= ankerBreedte + j;
-
-
+        //Beveiliging tegen pixels willen inkleuren buiten het bereik
+        //if(posHoogte > this.hoogte)
+          //posHoogte = this.hoogte;
+          //if(posBreedte > this.breedte)
+          //posBreedte = this.breedte;
         this.kleurPixelColor(posHoogte,posBreedte ,ledbitmap.pixellijst[i][j]);              
       }
     }
