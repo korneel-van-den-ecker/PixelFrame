@@ -13,7 +13,7 @@ module.exports = class PixelFrame{
   constructor(hoogte,breedte){
     this.breedte = breedte;
     this.hoogte = hoogte;
-    this.ledDriver = new Apa102spi(breedte*hoogte,100);
+    this.ledDriver = new Apa102spi(breedte*hoogte,200);
   }
 
   kleurVolledigFrameMetWiel(wielwaarde,brightness){
@@ -93,8 +93,9 @@ module.exports = class PixelFrame{
   }
 
   //Anker bevind zich links boven van de figuur
-  setLedBitmap(ledbitmap = new ledbitmap(), ankerHoogte = 0,ankerBreedte = 0){
+  setLedBitmap(ledbitmap , achtergrondKleur = new Color(0,0,0,1), ankerHoogte = 0,ankerBreedte = 0){
     var i,j;
+    this.kleurVolledigFrame(achtergrondKleur);    
     for(i=0;i<ledbitmap.hoogte;i++){    
       for(j=0;j<ledbitmap.breedte;j++){
         var posHoogte = ankerHoogte + i;

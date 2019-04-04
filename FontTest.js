@@ -10,19 +10,25 @@ var _ledBitmap = new LedBitmap();
 var positie;
 
 
-//letterstest();
-putString("Hallo Suske");
+letterstest();
+//putString("Hallo Suske");
 
 async function letterstest(){
+    var achtergrondKleur = new Color(0,0,255,1);
+    var letterKleur = new Color(255,0,0,1);
     while(1){        
             for(var i=52;i<127;++i){
-                for(var k= 0;k < pf.breedte;k++){
-                    //pf.kleurVolledigFrame(new Color(255,0,0,1));                    
-                    pf.setLedBitmap(letters.VerkrijgCharacterLedBitmap(String.fromCharCode(i),new Color(255,0,0,5)),k,k);  
+                //for(var k= 0;k < pf.breedte;k++){
+                    for(var k= pf.breedte;k >= 0;k--){
+                    //pf.kleurVolledigFrame(new Color(255,0,0,1));  
+                    //Achtergrond Kleuren
+                    //pf.kleurVolledigFrame(achtergrondKleur);      
+                    //Amai dees hier wegwergeken zenne!!!!!!!!!!!!!!!!!!!!!            
+                    pf.setLedBitmap(letters.VerkrijgCharacterLedBitmap(String.fromCharCode(i),letterKleur,achtergrondKleur),achtergrondKleur,k,k);  
                     //pf.setLedBitmap(letters.VerkrijgCharacterLedBitmap(String.fromCharCode(i),new Color(255,0,0,1)),0,k)                  
                     pf.show();
-                    await sleep(50);
-                    pf.blackout();                    
+                    await sleep(100);
+                    //pf.blackout();                    
             }            
         };           
     }

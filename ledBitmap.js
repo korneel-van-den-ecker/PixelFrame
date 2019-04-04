@@ -10,15 +10,15 @@ module.exports = class LedBitmap{
         };
     };
 
-    GetLedBitmapFromFont(bitmap,kleur){
+    GetLedBitmapFromFont(bitmap,letterKleur,achtergrondKleur){
         for(var i = 0; i < this.hoogte; i++){
             var str = bitmap[i];
             for(var j = 0; j < this.breedte; j++){
                 if(str[j] == 0 | str[j] == "O"){
-                    this.pixellijst[i][j] = kleur;
+                    this.pixellijst[i][j] = letterKleur;
                 }
                 else{
-                    this.pixellijst[i][j] = new Color(0,0,0,1);
+                    this.pixellijst[i][j] = achtergrondKleur;
                }
             };
         };

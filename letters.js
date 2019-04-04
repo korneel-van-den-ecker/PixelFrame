@@ -11,17 +11,19 @@ module.exports = class Letter{
         this.font = JSON.parse(fontRaw);
     };
 
-    VerkrijgCharacterLedBitmap(karakter,kleur){
+    VerkrijgCharacterLedBitmap(karakter,letterKleur,achtergrondKleur){
         var charset =   this.font.CharSet.find(i => i.Character == karakter);
         if(charset != undefined){            
             var bitmap = charset.Bitmap      
             // Het karakter opzoeken in de json en de bitmap setten
                       
             var ledBitmap = new LedBitmap(bitmap.length,bitmap[0].length); 
-            return ledBitmap.GetLedBitmapFromFont(bitmap,kleur);     
+            return ledBitmap.GetLedBitmapFromFont(bitmap,letterKleur,achtergrondKleur);     
         }
         else{
-            return ledBitmap.GetLedBitmapFromFont(this.font.CharSet.find(i => i.Character == 'a').Bitmap,kleur);
+            //DEes Fixen--> gewoon weg doen ? 
+            
+            return ledBitmap.GetLedBitmapFromFont(this.font.CharSet.find(i => i.Character == 'a').Bitmap,letterKleur,achtergrondKleur);
         }        
     };
 };
