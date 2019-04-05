@@ -5,29 +5,23 @@ var Color =require('./color');
 
 const pf = new PixelFrame(16,16);
 
-var letters = new Letters();
-var _ledBitmap = new LedBitmap();   
-var positie;
-
-
 letterstest();
 //putString("Hallo Suske");
 
 async function letterstest(){
-    var achtergrondKleur = new Color(0,0,255,1);
-    var letterKleur = new Color(255,0,0,1);
+    var achtergrondKleur = new Color(0,50,255,1);
+    var letterKleur = new Color(0,0,0,1);
+    var letters = new Letters()
     while(1){        
             for(var i=52;i<127;++i){
-                //for(var k= 0;k < pf.breedte;k++){
-                    for(var k= pf.breedte;k >= 0;k--){
-                    //pf.kleurVolledigFrame(new Color(255,0,0,1));  
-                    //Achtergrond Kleuren
-                    //pf.kleurVolledigFrame(achtergrondKleur);      
-                    //Amai dees hier wegwergeken zenne!!!!!!!!!!!!!!!!!!!!!            
-                    pf.setLedBitmap(letters.VerkrijgCharacterLedBitmap(String.fromCharCode(i),letterKleur,achtergrondKleur),achtergrondKleur,k,k);  
+                    for(var k= pf.breedte-1;k >= 0;k--){      
+                        var ledBitmap = letters.VerkrijgCharacterLedBitmap(String.fromCharCode(i),achtergrondKleur,letterKleur);
+                        console.log(ledBitmap)
+                        pf.setLedBitmap(ledBitmap,4,k);     
+                    //pf.setLedBitmap(Letters.VerkrijgCharacterLedBitmap(String.fromCharCode(i)),achtergrondKleur,k,k);  
                     //pf.setLedBitmap(letters.VerkrijgCharacterLedBitmap(String.fromCharCode(i),new Color(255,0,0,1)),0,k)                  
                     pf.show();
-                    await sleep(100);
+                    await sleep(40);
                     //pf.blackout();                    
             }            
         };           

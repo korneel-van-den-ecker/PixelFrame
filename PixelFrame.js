@@ -74,7 +74,7 @@ module.exports = class PixelFrame{
       this.kleurPixel(x,y,0,wiel_positie*3,255-wiel_positie,brightness)
     }      
   }
-
+    
   static GetKleurVanWiel(wiel_positie,brightness){
     if(wiel_positie > 255)
       wiel_positie = 255; //Veiligheid
@@ -93,19 +93,15 @@ module.exports = class PixelFrame{
   }
 
   //Anker bevind zich links boven van de figuur
-  setLedBitmap(ledbitmap , achtergrondKleur = new Color(0,0,0,1), ankerHoogte = 0,ankerBreedte = 0){
+  setLedBitmap(ledbitmap, ankerHoogte = 0,ankerBreedte = 0){
     var i,j;
-    this.kleurVolledigFrame(achtergrondKleur);    
+    this.kleurVolledigFrame(ledbitmap.achtergrondKleur);    
     for(i=0;i<ledbitmap.hoogte;i++){    
       for(j=0;j<ledbitmap.breedte;j++){
         var posHoogte = ankerHoogte + i;
         var posBreedte= ankerBreedte + j;
-        //Beveiliging tegen pixels willen inkleuren buiten het bereik
-        //if(posHoogte > this.hoogte)
-          //posHoogte = this.hoogte;
-          //if(posBreedte > this.breedte)
-          //posBreedte = this.breedte;
-        this.kleurPixelColor(posHoogte,posBreedte ,ledbitmap.pixellijst[i][j]);              
+        if(posBreedte < this.breedte & posHoogte < this.hoogte)                
+          this.kleurPixelColor(posHoogte,posBreedte ,ledbitmap.pixellijst[i][j]);              
       }
     }
   }

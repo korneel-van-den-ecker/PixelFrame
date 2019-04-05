@@ -11,19 +11,21 @@ module.exports = class Letter{
         this.font = JSON.parse(fontRaw);
     };
 
-    VerkrijgCharacterLedBitmap(karakter,letterKleur,achtergrondKleur){
+    VerkrijgCharacterLedBitmap(karakter,achtergrondKleur,letterKleur){
         var charset =   this.font.CharSet.find(i => i.Character == karakter);
+        
         if(charset != undefined){            
-            var bitmap = charset.Bitmap      
-            // Het karakter opzoeken in de json en de bitmap setten
-                      
-            var ledBitmap = new LedBitmap(bitmap.length,bitmap[0].length); 
-            return ledBitmap.GetLedBitmapFromFont(bitmap,letterKleur,achtergrondKleur);     
+            var bitmap = charset.Bitmap   
+            var ledBitmap = new LedBitmap(bitmap.length,bitmap[0].length);  
+            ledBitmap.letterKleur = letterKleur;
+            ledBitmap.achtergrondKleur = achtergrondKleur;
+            // Het karakter opzoeken in de json en de bitmap setten 
+            return ledBitmap.GetLedBitmapFromFont(bitmap);     
         }
         else{
             //DEes Fixen--> gewoon weg doen ? 
-            
-            return ledBitmap.GetLedBitmapFromFont(this.font.CharSet.find(i => i.Character == 'a').Bitmap,letterKleur,achtergrondKleur);
+            console.log("Tis hier te doen")
+            return ledBitmap.GetLedBitmapFromFont(this.font.CharSet.find(i => i.Character == 'a').Bitmap);
         }        
     };
 };
