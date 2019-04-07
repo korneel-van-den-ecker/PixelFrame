@@ -3,19 +3,21 @@ var Color = require('./color');
 var LedBitmap = require('./ledBitmap');
 var fs = require('fs');
 
-const fontpath = 'miniwi.json';
+const fontpath = 'f4x5.json';
 
 module.exports = class Letter{
     constructor(){
         let fontRaw = fs.readFileSync(fontpath);
         this.font = JSON.parse(fontRaw);
+        this.breedte = this.font.Size.Dx;
+        this.hoogte = this.font.Size.Dy;
     };
 
     VerkrijgCharacterLedBitmap(karakter,achtergrondKleur,letterKleur){
         var charset =   this.font.CharSet.find(i => i.Character == karakter);
         
         if(charset != undefined){            
-            var bitmap = charset.Bitmap   
+            var bitmap = charset.Bitmap     
             var ledBitmap = new LedBitmap(bitmap.length,bitmap[0].length);  
             ledBitmap.letterKleur = letterKleur;
             ledBitmap.achtergrondKleur = achtergrondKleur;
@@ -29,4 +31,3 @@ module.exports = class Letter{
         }        
     };
 };
-
