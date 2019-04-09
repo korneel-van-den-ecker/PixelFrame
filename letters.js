@@ -3,7 +3,7 @@ var Color = require('./color');
 var LedBitmap = require('./ledBitmap');
 var fs = require('fs');
 
-const fontpath = '4x5.json';
+const fontpath = 'f4x5.json';
 
 module.exports = class Letter{
     constructor(){

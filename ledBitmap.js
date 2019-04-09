@@ -10,7 +10,19 @@ module.exports = class LedBitmap{
         for(var i = 0; i < this.hoogte; i++){
             this.pixellijst[i] = new Array(this.breedte);
         };
+
+        this.KleurVolledigeBitmapInKleur(achtergrondKleur);      
+
     };
+
+    KleurVolledigeBitmapInKleur(kleur){
+        //De volledige bitmap kleuren voordat er op geplaatst word in de achtergrond kleur
+        for(var i = 0; i < this.hoogte; i++){    
+            for(var j = 0; j < this.breedte; j++){
+                this.pixellijst[i][j] = kleur;
+            }
+        };
+    }
 
     GetLedBitmapFromFont(bitmap){
         for(var i = 0; i < this.hoogte; i++){

@@ -18,7 +18,8 @@ module.exports = class Zin{
         };
         this.hoogte = this.letters.hoogte;
         this.breedte = 0;
-        //console.log(this.ledBitmapArray);                                   
+        //console.log(this.ledBitmapArray); 
+        //Kan weg?                                  
         //Berekenen van de breedte van de totale zin met een volledig pixelframe ervoor en erachter
         //berekenen hoeveel frames er moeten getoond worden        
         for (var i = 0; i < this.ledBitmapArray.length; i++){
@@ -33,7 +34,7 @@ module.exports = class Zin{
 
         //initializeren        
         //console.dir(this.ledBitmapArray);
-        for (var j = this.beginEindSpatie-1; j < (this.ledBitmap.breedte - this.beginEindSpatie); j = j + (this.letters.breedte+this.letterSpatie) ){
+        for (var j = this.beginEindSpatie; j < (this.ledBitmap.breedte - this.beginEindSpatie); j = j + (this.letters.breedte+this.letterSpatie) ){
             //if(j==(this.ledBitmap.breedte - this.beginEindSpatie)-1)
                 //j = j + this.letters.breedte;
             //console.log(`j = ${j}////// teller = ${teller}`)

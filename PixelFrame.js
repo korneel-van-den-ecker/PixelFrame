@@ -13,7 +13,7 @@ module.exports = class PixelFrame{
   constructor(hoogte,breedte){
     this.breedte = breedte;
     this.hoogte = hoogte;
-    this.ledDriver = new Apa102spi(breedte*hoogte,800);
+    this.ledDriver = new Apa102spi(breedte*hoogte,400);
   }
 
   kleurVolledigFrameMetWiel(wielwaarde,brightness){
@@ -62,18 +62,8 @@ module.exports = class PixelFrame{
   //deze methode neemt een waarde tussen 0-255 voor de kleur en toont 
   //enkel de "volste kleuren"
   kleurPixelMetWiel(x,y,wiel_positie,brightness){
-    if(wiel_positie > 255)
-      wiel_positie = 255; //Veiligheid
-    if(wiel_positie<85)
-      this.kleurPixel(x,y,wiel_positie*3,255-wiel_positie*3,0,brightness);  
-    else if(wiel_positie<170){
-      wiel_positie -= 85;
-      this.kleurPixel(x,y,255-wiel_positie*3,0,wiel_positie*3,brightness)
-    }
-    else if(wiel_positie <=255 ){
-      wiel_positie -= 170
-      this.kleurPixel(x,y,0,wiel_positie*3,255-wiel_positie,brightness)
-    }      
+    
+    this.kleurPixelColor(x,y,PixelFrame.GetKleurVanWiel(wiel_positie,brightness))
   }
     
   static GetKleurVanWiel(wiel_positie,brightness){
@@ -104,10 +94,11 @@ module.exports = class PixelFrame{
         var posHoogte = ankerHoogte + i;
         var posBreedte = ankerBreedte + j;
         if(posBreedte < this.breedte && posHoogte < this.hoogte){
+          //De spaties zijn iet ingekleurd
           if(ledbitmap.pixellijst[i][j] != undefined)                
             this.kleurPixelColor(posHoogte, posBreedte, ledbitmap.pixellijst[i][j]);
-          else
-            this.kleurPixelColor(posHoogte, posBreedte, ledbitmap.achtergrondKleur);
+          //else
+            //this.kleurPixelColor(posHoogte, posBreedte, ledbitmap.achtergrondKleur);
         }
                        
       }
