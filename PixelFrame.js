@@ -39,7 +39,8 @@ module.exports = class PixelFrame{
       y = this.hoogte -1 - y;
     }
     let nummer = ((x*this.hoogte)+y);
-    this.ledDriver.setLedColor(nummer,kleur.brightness,kleur.r,kleur.g,kleur.b);
+    if(kleur != undefined)
+      this.ledDriver.setLedColor(nummer,kleur.brightness,kleur.r,kleur.g,kleur.b);
   };
 
   kleurPixel(x,y,r,g,b,bright){
@@ -52,7 +53,7 @@ module.exports = class PixelFrame{
 
   blackout(){
     this.kleurVolledigFrame(new Color(0,0,0,1));
-    this.show();
+    //this.show();
     }
 
   show(){
@@ -96,13 +97,19 @@ module.exports = class PixelFrame{
   setLedBitmap(ledbitmap, ankerHoogte = 0,ankerBreedte = 0){
     var i,j;
     //Deze moet hier weg als we marquee gaan doen 
-    this.kleurVolledigFrame(ledbitmap.achtergrondKleur);    
+    this.kleurVolledigFrame(ledbitmap.achtergrondKleur);
+        
     for(i = 0; i < ledbitmap.hoogte; i++){    
       for(j = 0; j < ledbitmap.breedte; j++){
         var posHoogte = ankerHoogte + i;
         var posBreedte = ankerBreedte + j;
-        if(posBreedte < this.breedte & posHoogte < this.hoogte)                
-          this.kleurPixelColor(posHoogte, posBreedte, ledbitmap.pixellijst[i][j]);              
+        if(posBreedte < this.breedte && posHoogte < this.hoogte){
+          if(ledbitmap.pixellijst[i][j] != undefined)                
+            this.kleurPixelColor(posHoogte, posBreedte, ledbitmap.pixellijst[i][j]);
+          else
+            this.kleurPixelColor(posHoogte, posBreedte, ledbitmap.achtergrondKleur);
+        }
+                       
       }
     }
   }

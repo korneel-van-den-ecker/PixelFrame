@@ -3,7 +3,7 @@ var Color = require('./color');
 var LedBitmap = require('./ledBitmap');
 var fs = require('fs');
 
-const fontpath = 'f4x5.json';
+const fontpath = '4x5.json';
 
 module.exports = class Letter{
     constructor(){
@@ -19,15 +19,15 @@ module.exports = class Letter{
         if(charset != undefined){            
             var bitmap = charset.Bitmap     
             var ledBitmap = new LedBitmap(bitmap.length,bitmap[0].length);  
-            ledBitmap.letterKleur = letterKleur;
             ledBitmap.achtergrondKleur = achtergrondKleur;
+            ledBitmap.afbeeldingsKleur = letterKleur;
             // Het karakter opzoeken in de json en de bitmap setten 
             return ledBitmap.GetLedBitmapFromFont(bitmap);     
         }
         else{
             //DEes Fixen--> gewoon weg doen ? 
-            console.log("Tis hier te doen")
-            return ledBitmap.GetLedBitmapFromFont(this.font.CharSet.find(i => i.Character == 'a').Bitmap);
+            console.log("Tis hier te doen bijdie fout da je nog moet wergwerken")
+            return new LedBitmap(this.hoogte,this.breedte,achtergrondKleur,letterKleur);
         }        
     };
 };

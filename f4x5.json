@@ -4,7 +4,7 @@
 	"Description": "",
 	"Size": {
 		"Dx": 4,
-		"Dy": 4
+		"Dy": 5
 	},
 	"AnchorPos": {
 		"X": 0,
@@ -285,7 +285,6 @@
 		{
 			"Character": "e",
 			"Bitmap": [
-				"----",
 				"-00-",
 				"0-0-",
 				"00--",

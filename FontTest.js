@@ -5,18 +5,27 @@ var Zin = require('./zin.js');
 
 const pf = new PixelFrame(16,16);
 
-var achtergrondKleur = new Color(0,255,0,1);
-var letterKleur = new Color(255,0,0,1);
+var achtergrondKleur = new Color(255,0,0,1);
+var letterKleur = new Color(0,0,0,1);
 var letters = new Letters()
 
 //letterstest();
 //putString1("Hallo Suske Ik zie u heel graag ");
 //basic("Hallo Suske Ik zie u heel graag ")
-var zin = new Zin("Hallo suske",letters,achtergrondKleur,letterKleur);
+zinTest("je ne query pas du JSON")
 
-
-
-
+async function zinTest(boodschap){
+    var zin = new Zin(boodschap,letters,achtergrondKleur,letterKleur);
+    for(var i = 0 /*zin.beginEindSpatie*/; i <= zin.ledBitmap.breedte ; i++){
+        var ledBitmap = zin.ledBitmap.GetFragmentOfLedBitmap(0,i,pf.breedte+1,zin.letters.hoogte);
+        console.dir(ledBitmap.pixellijst);
+        //console.log(`het volgende frame is: ${ledBitmap.pixellijst}`)
+        pf.blackout();
+        pf.setLedBitmap(ledBitmap,2,0);
+        pf.show()
+        await sleep(50);
+    }
+};
 
 async function letterstest(){   
     while(1){        
@@ -116,8 +125,7 @@ async function putString1(boodschap){
         };
     };
       
-};
-       
+};       
   
 function sleep(ms){
     return new Promise(resolve=>{
