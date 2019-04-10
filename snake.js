@@ -3,10 +3,10 @@ var Color =require('./color');
 var Coordinaat = require('./coordinaat')
 
 const Move = {
-    UP: 1,
-    DOWN: 2,
-    RIGHT: 3,
-    LEFT: 4
+    UP: 0,
+    DOWN: 1,
+    RIGHT: 2,
+    LEFT: 3
 }
 
 module.exports = class Marquee{
@@ -30,10 +30,10 @@ module.exports = class Marquee{
 
     move(move,groei,show = true){
         this.groei = groei;
-        nieuweKop = new Coordinaat(0,0);
-        oudeKop = new Coordinaat(0,0);
-        oudeKop = this.pixelLijst[this.pixelLijst.length]
-
+        var nieuweKop = new Coordinaat(0,0);
+        var oudeKop = new Coordinaat(0,0);
+        oudeKop = this.pixelLijst[this.pixelLijst.length-1]
+        console.log(oudeKop);
         //De beweging toepassen en nieuwe kop berekenen
         //Omhoog
         if(move == Move.UP){
@@ -46,7 +46,9 @@ module.exports = class Marquee{
                 }         
             }
             else{
+                console.log("nieuwKop maken UP")
                 nieuweKop = new Coordinaat(oudeKop.x -1,oudeKop.y)
+                console.log(`nieuwe op: ${nieuweKop.x } en ${nieuweKop.y}`)
             }            
         }
 
@@ -61,7 +63,9 @@ module.exports = class Marquee{
                 }         
             }
             else{
+                console.log("nieuwKop maken DOWN")
                 nieuweKop = new Coordinaat(oudeKop.x +1,oudeKop.y)
+                console.log(`nieuwe op: ${nieuweKop}`)
             }            
         }
 
@@ -76,7 +80,9 @@ module.exports = class Marquee{
                 }         
             }
             else{
+                console.log("nieuwKop maken Right")
                 nieuweKop = new Coordinaat(oudeKop.x,oudeKop.y+1)
+                console.log(`nieuwe op: ${nieuweKop}`)
             }            
         }
 
@@ -91,7 +97,9 @@ module.exports = class Marquee{
                 }         
             }
             else{
+                console.log("nieuwKop maken LEFT")
                 nieuweKop = new Coordinaat(oudeKop.x,oudeKop.y-1)
+                console.log(`nieuwe op: ${nieuweKop}`)
             }            
         }
         
@@ -100,15 +108,20 @@ module.exports = class Marquee{
             this.voedsel = this.GetRandomVoedsel();
         }
         else{
+            console.log("push nieuwekop")
             this.pixelLijst.push(nieuweKop)
         }
+        //this.pixelLijst.push(nieuweKop)
 
         this.CheckMaxLengte();
 
-        if(this.groei == false){
+        //if(this.groei == false){
             //De staart verwijderen
-            delete this.pixelLijst[0]
-        }
+            //delete this.pixelLijst[0]
+            //Of 
+            console.log('pop staart')
+            this.pixelLijst.pop();
+        //}
 
         this.AddtoFrame(show);
                
@@ -130,14 +143,15 @@ module.exports = class Marquee{
             this.groei = false;
     }
 
-    AddtoFrame(show = true){
+    AddtoFrame(show ){
         //voeg de slang toe op het frame
-        for(var i = 0;i < this.pixelLijst; i++){
-            this.pf.kleurPixelColor(pixelLijst[i].x,pixelLijst[i].y,this.kleur)
+        console.dir(this.pixelLijst)
+        for(var i = 0;i < this.pixelLijst.length; i++){
+            this.pf.kleurPixelColor(this.pixelLijst[i].x,this.pixelLijst[i].y,this.kleur)
         }
         //toen het voedsel
         this.pf.kleurPixelColor(this.voedsel.x,this.voedsel.y,this.voedselkleur);
-        if(this.show){
+        if(show){
             this.pf.show();
         }
 
