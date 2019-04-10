@@ -1,0 +1,2 @@
+var Snake = require('./snake')
+

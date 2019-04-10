@@ -3,9 +3,6 @@ var PixelFrame = require('./PixelFrame');
 var Color =require('./color');
 var Zin = require('./zin.js');
 
-const pf = new PixelFrame(16,16);
-
-
 module.exports = class Marquee{
     constructor(boodschap,achtergrondKleur,letterKleur, pixelFrame){
         this.achtergrondKleur = achtergrondKleur;
@@ -25,7 +22,8 @@ module.exports = class Marquee{
             this.pf.setLedBitmap(ledBitmap1,6,0);
             this.pf.setLedBitmap(ledBitmap1,11,0);
             this.pf.show()
-            await this.sleep(100);
+            //await this.sleep(100);
+            await PixelFrame.sleep(100);
         }
     };
 

@@ -6,11 +6,11 @@ var Marquee = require('./marquee');
 
 const pf = new PixelFrame(16,16);
 
-var achtergrondKleur = new Color(1,0,0,31);
+var achtergrondKleur = new Color(255,0,0,31);
 var letterKleur = new Color(0,0,0,1);
 var letters = new Letters()
 
-var marquee = new Marquee("Hallo suske hoe gaat het?",achtergrondKleur,letterKleur,pf);
+var marquee = new Marquee("Pijp Mij!!!!!",achtergrondKleur,letterKleur,pf);
 marquee.toonZin();
 
 
