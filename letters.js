@@ -2,13 +2,16 @@ var PixelFrame = require('./PixelFrame');
 var Color = require('./color');
 var LedBitmap = require('./ledBitmap');
 var fs = require('fs');
+var fontje = require('./f4x5.json')
 
 const fontpath = 'f4x5.json';
 
 module.exports = class Letter{
     constructor(){
-        let fontRaw = fs.readFileSync(fontpath);
-        this.font = JSON.parse(fontRaw);
+        //let fontRaw = fs.read(fontpath);
+        //this.font = JSON.parse(fontRaw);
+        this.font = fontje;
+        console.dir(fontje);
         this.breedte = this.font.Size.Dx;
         this.hoogte = this.font.Size.Dy;
     };

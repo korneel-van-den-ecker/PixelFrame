@@ -1,11 +1,23 @@
 {
-  "name": "PixelFrame",
-  "version": "1.0.0",
+  "name": "pixelframe",
+  "version": "1.0.10",
   "description": "Project Embedded system PixelFrame based on APA102C",
-  "main": "PixelFrame.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Korneel Van den Ecker",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/koranus/PixelFrame.git"
+  },
+  "keywords": [
+    "APA102C",
+    "LEDFrame"
+  ],
+  "bugs": {
+    "url": "https://github.com/koranus/PixelFrame/issues"
+  },
+  "homepage": "https://github.com/koranus/PixelFrame#readme"
 }
