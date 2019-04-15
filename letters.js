@@ -2,9 +2,7 @@ var PixelFrame = require('./PixelFrame');
 var Color = require('./color');
 var LedBitmap = require('./ledBitmap');
 var fs = require('fs');
-var fontje = require('./f4x5.json')
-
-const fontpath = 'f4x5.json';
+var fontje = require('./miniwi.json')
 
 module.exports = class Letter{
     constructor(){
