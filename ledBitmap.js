@@ -39,6 +39,14 @@ module.exports = class LedBitmap{
         return this;
     };
 
+    GetLedBitMapFromJSON(data){
+        for(var i = 0; i < data.pixelLijst.length; i++){
+            var kleur = new Color(0,0,0,1);
+            this.pixellijst[data.pixelLijst[i].xPos][data.pixelLijst[i].yPos] = 
+        };
+        return this;
+    };
+
     AddLedBitmapToLedBitmap(ledBitmap,ankerHoogte,ankerBreedte){
         if(ledBitmap != undefined){
             for(var i = 0; i < ledBitmap.hoogte; i++){    
