@@ -10,9 +10,8 @@ var achtergrondKleur = new Color(255,0,0,1);
 var letterKleur = new Color(0,0,0,1);
 var letters = new Letters()
 
-var marquee = new Marquee("Hallo Gaston & Maurice",achtergrondKleur,letterKleur,pf);
-marquee.toonZin();
-
+//var marquee = new Marquee("Hallo Gaston & Maurice",achtergrondKleur,letterKleur,pf);
+//marquee.toonZin();
 
 async function letterstest(){   
     while(1){        

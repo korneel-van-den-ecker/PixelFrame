@@ -1,10 +1,10 @@
 var Apa102spi = require('apa102-spi')
-
 // Apa102spi(number of leds, clock divider)
 var LedDriver = new Apa102spi(256)
 
 // setLedColor(n, brightness 0-31, red 0-255, green 0-255, blue 0-255)
-SendLed_Wait();
+//SendLed_Wait();
+
 
 async function SendLed_Wait(){
   var i;
@@ -17,8 +17,7 @@ async function SendLed_Wait(){
                 LedDriver.setLedColor(j,1,0,0,0) 
                 LedDriver.sendLeds();                
               }           
-              //Blackout_complete_Frame();
-                     
+              //Blackout_complete_Frame();                     
     }  
 };
 
@@ -41,6 +40,8 @@ function getRandomInt(min, max) {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
   }
+
+  
 
 // send data to led string
 

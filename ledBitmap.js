@@ -41,8 +41,11 @@ module.exports = class LedBitmap{
 
     GetLedBitMapFromJSON(data){
         for(var i = 0; i < data.pixelLijst.length; i++){
-            var kleur = new Color(0,0,0,1);
-            this.pixellijst[data.pixelLijst[i].xPos][data.pixelLijst[i].yPos] = 
+            var kleurString = data.pixelLijst[i].kleur;
+            var kleurstrinSplit = kleurString.split(',')
+            console.log(`kleur ${i}: r:${kleurstrinSplit[0]} ,g:${kleurstrinSplit[1]} ,b:${kleurstrinSplit[2]}`)
+            var kleur = new Color(kleurstrinSplit[0],kleurstrinSplit[1],kleurstrinSplit[2],1);
+            this.pixellijst[data.pixelLijst[i].yPos][data.pixelLijst[i].xPos] = kleur;
         };
         return this;
     };
