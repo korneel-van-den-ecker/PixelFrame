@@ -10,11 +10,12 @@ module.exports = class LedBitmap{
         for(var i = 0; i < this.hoogte; i++){
             this.pixellijst[i] = new Array(this.breedte);
         };
-
+        //Bij initialisatie de volledige bitmap inkleuren in een achtergrondkleur 
+        //Pas op! kan mogelijk andere afbeeldingen wissen.
         this.KleurVolledigeBitmapInKleur(achtergrondKleur);      
 
-    };
-
+    };    
+    
     KleurVolledigeBitmapInKleur(kleur){
         //De volledige bitmap kleuren voordat er op geplaatst word in de achtergrond kleur
         for(var i = 0; i < this.hoogte; i++){    
@@ -24,6 +25,7 @@ module.exports = class LedBitmap{
         };
     }
 
+    //verkrijg bitmap vanuit een font ( bitmap param is een enkel letter)
     GetLedBitmapFromFont(bitmap){
         for(var i = 0; i < this.hoogte; i++){
             var str = bitmap[i];
@@ -39,6 +41,7 @@ module.exports = class LedBitmap{
         return this;
     };
 
+    //Verkrijg LedBitmap vanuit een JSON object
     GetLedBitMapFromJSON(data){
         for(var i = 0; i < data.pixelLijst.length; i++){
             var kleurString = data.pixelLijst[i].kleur;
@@ -50,6 +53,7 @@ module.exports = class LedBitmap{
         return this;
     };
 
+    //Voeg een ledbitmap toe aan de ledbitmap
     AddLedBitmapToLedBitmap(ledBitmap,ankerHoogte,ankerBreedte){
         if(ledBitmap != undefined){
             for(var i = 0; i < ledBitmap.hoogte; i++){    
@@ -61,6 +65,7 @@ module.exports = class LedBitmap{
         }            
     }
 
+    //Neem een fragment uit een ledbitmap en geef dat fragment als een ledbitmap terug
     GetFragmentOfLedBitmap(ankerHoogte, ankerBreedte, breedte, hoogte){
         var ledBitmap = new LedBitmap(hoogte,breedte,this.achtergrondKleur,this.afbeeldingsKleur);
         for(var i = 0; i < ledBitmap.hoogte; i++){    

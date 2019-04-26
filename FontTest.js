@@ -6,13 +6,14 @@ var Marquee = require('./marquee');
 
 const pf = new PixelFrame(16,16);
 
-var achtergrondKleur = new Color(255,0,0,1);
-var letterKleur = new Color(0,0,0,1);
+var achtergrondKleur = new Color(0,5,0,1);
+var letterKleur = new Color(0,0,5,1);
 var letters = new Letters()
 
-//var marquee = new Marquee("Hallo Gaston & Maurice",achtergrondKleur,letterKleur,pf);
-//marquee.toonZin();
+var marquee = new Marquee("Hallo Gaston &@^ù Maurice",achtergrondKleur,letterKleur,pf);
+marquee.toonZin();
 
+//test functie die het alfebet laat zien
 async function letterstest(){   
     while(1){        
             for(var i=52;i<127;++i){

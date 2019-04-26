@@ -1,6 +1,6 @@
 {
   "name": "pixelframe",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "description": "Project Embedded system PixelFrame based on APA102C",
   "main": "index.js",
   "scripts": {

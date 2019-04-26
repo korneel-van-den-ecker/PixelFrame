@@ -1,6 +1,5 @@
 var Letters = require('./letters.js')
 var PixelFrame = require('./PixelFrame');
-var Color =require('./color');
 var Zin = require('./zin.js');
 
 module.exports = class Marquee{
@@ -14,7 +13,10 @@ module.exports = class Marquee{
 
     async toonZin(){
         for(var i = 0 /*zin.beginEindSpatie*/; i <= this.zin.ledBitmap.breedte ; i++){
-            var ledBitmap1 = this.zin.ledBitmap.GetFragmentOfLedBitmap(0,i,this.pf.breedte,this.zin.letters.hoogte);
+            var ledBitmap1 = this.zin.ledBitmap.GetFragmentOfLedBitmap(0,
+                i,
+                this.pf.breedte,
+                this.zin.letters.hoogte);
             //console.dir(ledBitmap1.pixellijst);
             //console.log(`het volgende frame is: ${ledBitmap.pixellijst}`)
             this.pf.blackout();
@@ -24,10 +26,4 @@ module.exports = class Marquee{
             await PixelFrame.sleep(100);
         }
     };
-
-    sleep(ms){
-        return new Promise(resolve=>{
-            setTimeout(resolve,ms)
-        })
-    };   
 }

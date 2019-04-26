@@ -7,11 +7,11 @@ var k;
 
 while(1){
   for(k=1;k<=255;k++){  
-    pf.kleurVolledigFrameMetWiel(k,1)
+    pf.kleurVolledigFrame(PixelFrame.GetKleurVanWiel(k,5))
     pf.show();
   }
   for(k=255;k>=1;k--){  
-    pf.kleurVolledigFrameMetWiel(k,1)
+    pf.kleurVolledigFrame(PixelFrame.GetKleurVanWiel(k,5))
     pf.show();
   }
 }

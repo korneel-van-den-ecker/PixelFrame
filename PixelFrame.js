@@ -1,13 +1,5 @@
-
 var Apa102spi = require('apa102-spi')
-var Ledbitmap = require('./ledBitmap')
 var Color =require('./color');
-
-//Info over  klasses maken 
-//https://scotch.io/tutorials/better-javascript-with-es6-pt-ii-a-deep-dive-into-classes
-
-var _ledbitmap = new Ledbitmap(0,0);
-
 
 module.exports = class PixelFrame{
   constructor(hoogte,breedte){
@@ -16,15 +8,7 @@ module.exports = class PixelFrame{
     this.ledDriver = new Apa102spi(breedte*hoogte,800);
   }
 
-  kleurVolledigFrameMetWiel(wielwaarde,brightness){
-    var i,j;
-    for(i=0;i<this.hoogte;i++){
-      for(j=0;j<this.breedte;j++){
-        this.kleurPixelMetWiel(i,j,wielwaarde,brightness);        
-      }
-    }
-  }
-
+  //Kleur hele frame in een bepaalde kleur
   kleurVolledigFrame(kleur){
     var i,j;
     for(i=0;i<this.hoogte;i++){
@@ -33,7 +17,7 @@ module.exports = class PixelFrame{
       }
     }
   }
-
+//Kleur pixel aan de hand van x, y pos en kleur
   kleurPixelColor(x,y,kleur){
     if(x%2 != 0){
       y = this.hoogte -1 - y;
@@ -43,29 +27,18 @@ module.exports = class PixelFrame{
       this.ledDriver.setLedColor(nummer,kleur.brightness,kleur.r,kleur.g,kleur.b);
   };
 
-  kleurPixel(x,y,r,g,b,bright){
-    if(x%2 != 0){
-      y = this.hoogte -1 - y;
-    }
-    let nummer = ((x*this.hoogte)+y);
-    this.ledDriver.setLedColor(nummer,bright,r,g,b);
-  }
-
+  //Zet alle pixels op zwart
   blackout(){
     this.kleurVolledigFrame(new Color(0,0,0,1));
     //this.show();
     }
-
+  //verzend de WriteBuffer naar de Leds
   show(){
     this.ledDriver.sendLeds();
   }
   //deze methode neemt een waarde tussen 0-255 voor de kleur en toont 
   //enkel de "volste kleuren"
-  kleurPixelMetWiel(x,y,wiel_positie,brightness){
-    
-    this.kleurPixelColor(x,y,PixelFrame.GetKleurVanWiel(wiel_positie,brightness))
-  }
-    
+ 
   static GetKleurVanWiel(wiel_positie,brightness){
     if(wiel_positie > 255)
       wiel_positie = 255; //Veiligheid
@@ -81,29 +54,7 @@ module.exports = class PixelFrame{
       wiel_positie -= 170;
       return new Color(0,wiel_positie*3,255-wiel_positie,brightness);
     }      
-  }
-
-  //Anker bevind zich links boven van de figuur
-  setLedBitmap(ledbitmap, ankerHoogte = 0,ankerBreedte = 0){
-    var i,j;
-    //Deze moet hier weg als we marquee gaan doen 
-    this.kleurVolledigFrame(ledbitmap.achtergrondKleur);
-        
-    for(i = 0; i < ledbitmap.hoogte; i++){    
-      for(j = 0; j < ledbitmap.breedte; j++){
-        var posHoogte = ankerHoogte + i;
-        var posBreedte = ankerBreedte + j;
-        if(posBreedte < this.breedte && posHoogte < this.hoogte){
-          //De spaties zijn iet ingekleurd
-          if(ledbitmap.pixellijst[i][j] != undefined)                
-            this.kleurPixelColor(posHoogte, posBreedte, ledbitmap.pixellijst[i][j]);
-          //else
-            //this.kleurPixelColor(posHoogte, posBreedte, ledbitmap.achtergrondKleur);
-        }
-                       
-      }
-    }
-  }
+  }  
 
   static sleep(ms){
     return new Promise(resolve=>{
@@ -114,8 +65,28 @@ module.exports = class PixelFrame{
   static getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+    return Math.floor(Math.random() * (max - min)) + min; 
   };
+
+  //Anker bevind zich links boven van de figuur
+  setLedBitmap(ledbitmap, ankerHoogte = 0,ankerBreedte = 0){
+    var i,j;
+    //Dit zorgt er voor dat de afbeelding het de pixelframe in een achtergrondkleur tekent.
+    this.kleurVolledigFrame(ledbitmap.achtergrondKleur);
+    //Omzetten van de ledbitmap.pixellijst naar de juiste pixels die gekleurd moeten worden    
+    for(i = 0; i < ledbitmap.hoogte; i++){    
+      for(j = 0; j < ledbitmap.breedte; j++){
+        var posHoogte = ankerHoogte + i;
+        var posBreedte = ankerBreedte + j;
+        if(posBreedte < this.breedte && posHoogte < this.hoogte){
+
+          if(ledbitmap.pixellijst[i][j] != undefined)                
+            this.kleurPixelColor(posHoogte, posBreedte, ledbitmap.pixellijst[i][j]);
+        }
+                       
+      }
+    }
+  }
 
 };
 
