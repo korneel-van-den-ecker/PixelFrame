@@ -17,7 +17,10 @@ berichtenLijst.push("Bericht 3");
 berichtenLijst.push("Laatste");
 console.log(berichtenLijst);
 
-ToonberichtenLijs();
+//ToonberichtenLijs();
+
+var marquee = new Marquee(pf);
+marquee.toonZin("Hallo dit is een test",achtergrondKleur,letterKleur,);
 
 async function ToonberichtenLijs(){
     for(var i = 0; i < berichtenLijst.length; i ++){

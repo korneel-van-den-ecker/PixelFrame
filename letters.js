@@ -1,5 +1,5 @@
 var LedBitmap = require('./ledBitmap');
-var font = require('./miniwi.json')
+var font = require('./4x8.json')
 
 module.exports = class Letter{
     constructor(){

@@ -19,7 +19,7 @@ module.exports = class Marquee{
             //console.dir(ledBitmap1.pixellijst);
             //console.log(`het volgende frame is: ${ledBitmap.pixellijst}`)
             this.pf.blackout();
-            this.pf.setLedBitmap(ledBitmap1,1,0);
+            this.pf.setLedBitmap(ledBitmap1,3,0);
             this.pf.show()
             //await this.sleep(100);
             await PixelFrame.sleep(100);

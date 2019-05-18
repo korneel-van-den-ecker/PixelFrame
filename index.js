@@ -8,10 +8,10 @@ var berichten = [];
 var marquee = new Marquee(new PIxelframe(16,16));
 
 
-exports.tekstMarque =  function (boodschap) { 
+exports.tekstMarque =  function (boodschap,letterkleur,achtergrondkleur) { 
   //berichten.push(boodschap);
-  console.log(berichten);
-  marquee.toonZin(boodschap,new Color(255,0,0,20),new Color(0,0,255,20))
+  console.log(boodschap + letterkleur + achtergrondkleur);
+  marquee.toonZin(boodschap,achtergrondkleur,letterkleur);
    //toonBoodschappen();
   //var pf = new PIxelframe(16,16);
   //var marquee = new Marquee(boodschap,new Color(255,0,0,20),new Color(0,0,255,20),pf);
