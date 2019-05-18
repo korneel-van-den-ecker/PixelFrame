@@ -2,12 +2,30 @@ var Marquee = require('./marquee');
 var Color = require('./color');
 var PIxelframe  =require('./PixelFrame');
 var LedBitMap = require('./ledBitmap');
+//Lijst die de berichten bijhoudt die getoondt zijn geweest
+var berichten = [];
 
-exports.tekstMarque = function (boodschap) { 
+var marquee = new Marquee(new PIxelframe(16,16));
+
+
+exports.tekstMarque =  function (boodschap) { 
+  //berichten.push(boodschap);
+  console.log(berichten);
+  marquee.toonZin(boodschap,new Color(255,0,0,20),new Color(0,0,255,20))
+   //toonBoodschappen();
+  //var pf = new PIxelframe(16,16);
+  //var marquee = new Marquee(boodschap,new Color(255,0,0,20),new Color(0,0,255,20),pf);
+  //marquee.toonZin();  
+}
+
+async function toonBoodschappen(){
   var pf = new PIxelframe(16,16);
-  var marquee = new Marquee(boodschap,new Color(255,0,0,1),new Color(0,0,0,1),pf);
-  marquee.toonZin();
- }  
+  for(var i = 0; i < berichten.length; i ++){
+      var marquee = new Marquee(berichten[i],new Color(255,0,0,20),new Color(0,0,255,20),pf);
+      await marquee.toonZin();
+      berichten[i].shift();
+  }
+}
 
  //Om een Pixelframe, verkregen als JSON ,om te zetten naar Bitmap
  exports.tekenBitmap = function(bitmapData){
@@ -21,3 +39,4 @@ exports.tekstMarque = function (boodschap) {
 exports.printMsg = function() {
   console.log("This is a message from the demo package");
 }  
+

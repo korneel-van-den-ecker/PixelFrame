@@ -6,12 +6,40 @@ var Marquee = require('./marquee');
 
 const pf = new PixelFrame(16,16);
 
-var achtergrondKleur = new Color(0,5,0,1);
-var letterKleur = new Color(0,0,5,1);
+var achtergrondKleur = new Color(0,255,0,1);
+var letterKleur = new Color(0,0,255,1);
 var letters = new Letters()
+var i = 0;
+var berichtenLijst = [];
+berichtenLijst.push("hallo Suske");
+berichtenLijst.push("Jooooo ehehe");
+berichtenLijst.push("Bericht 3");
+berichtenLijst.push("Laatste");
+console.log(berichtenLijst);
 
-var marquee = new Marquee("Hallo Gaston &@^ù Maurice",achtergrondKleur,letterKleur,pf);
-marquee.toonZin();
+ToonberichtenLijs();
+
+async function ToonberichtenLijs(){
+    for(var i = 0; i < berichtenLijst.length; i ++){
+        var marquee = new Marquee(berichtenLijst[i],achtergrondKleur,letterKleur,pf);
+        await marquee.toonZin();
+    }
+}
+
+
+
+ //var marquee = new Marquee(berichtenLijst[i],achtergrondKleur,letterKleur,pf)
+ //   marquee.toonZin(()=>{     
+ //    var marquee1 = new Marquee(berichtenLijst[++i],achtergrondKleur,letterKleur,pf)
+ //    marquee1.toonZin(()=>{
+ //        console.log("einde callback")
+ //    })
+ //})
+
+
+//var marquee = new Marquee("Hallo Gaston & Maurice",achtergrondKleur,letterKleur,pf);
+
+//marquee.toonZin()new;
 
 //test functie die het alfebet laat zien
 async function letterstest(){   

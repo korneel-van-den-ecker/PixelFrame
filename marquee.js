@@ -3,15 +3,14 @@ var PixelFrame = require('./PixelFrame');
 var Zin = require('./zin.js');
 
 module.exports = class Marquee{
-    constructor(boodschap,achtergrondKleur,letterKleur, pixelFrame){
-        this.achtergrondKleur = achtergrondKleur;
-        this.letterKleur = letterKleur;
+    constructor(pixelFrame){
         this.letters = new Letters();
         this.pf = pixelFrame;
-        this.zin = new Zin(boodschap,this.letters,this.achtergrondKleur,this.letterKleur);
+        this.zin;
     }
 
-    async toonZin(){
+    async toonZin(boodschap,achtergrondKleur,letterKleur,){
+        this.zin = new Zin(boodschap,this.letters,achtergrondKleur,letterKleur);
         for(var i = 0 /*zin.beginEindSpatie*/; i <= this.zin.ledBitmap.breedte ; i++){
             var ledBitmap1 = this.zin.ledBitmap.GetFragmentOfLedBitmap(0,
                 i,
@@ -24,6 +23,11 @@ module.exports = class Marquee{
             this.pf.show()
             //await this.sleep(100);
             await PixelFrame.sleep(100);
+            
         }
+        console.log('bericht werd getoond');
+        //callback.call(this);
+        //returnt true om aan te geven dat de zin werd fetoond
+        return true;
     };
 }
