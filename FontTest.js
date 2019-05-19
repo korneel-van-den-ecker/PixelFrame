@@ -3,7 +3,6 @@ var PixelFrame = require('./PixelFrame');
 var Color =require('./color');
 var Marquee = require('./marquee');
 
-
 const pf = new PixelFrame(16,16);
 
 var achtergrondKleur = new Color(0,255,0,1);
@@ -19,8 +18,15 @@ console.log(berichtenLijst);
 
 //ToonberichtenLijs();
 
-var marquee = new Marquee(pf);
-marquee.toonZin("Hallo dit is een test",achtergrondKleur,letterKleur,);
+var marquee = new Marquee(pf);  
+toonBoodschapAsync("jooo",letterKleur,achtergrondKleur);
+
+async function toonBoodschapAsync(boodschap,letterkleur,achtergrondkleur){
+    if(await marquee.toonZin(boodschap,letterkleur,achtergrondkleur) == true){
+        console.log("gedaan hier")
+    }
+    
+}
 
 async function ToonberichtenLijs(){
     for(var i = 0; i < berichtenLijst.length; i ++){

@@ -9,7 +9,7 @@ module.exports = class Marquee{
         this.zin;
     }
 
-    async toonZin(boodschap,achtergrondKleur,letterKleur,){
+    async toonZin(boodschap,letterKleur,achtergrondKleur){
         this.zin = new Zin(boodschap,this.letters,achtergrondKleur,letterKleur);
         for(var i = 0 /*zin.beginEindSpatie*/; i <= this.zin.ledBitmap.breedte ; i++){
             var ledBitmap1 = this.zin.ledBitmap.GetFragmentOfLedBitmap(0,
@@ -22,12 +22,8 @@ module.exports = class Marquee{
             this.pf.setLedBitmap(ledBitmap1,3,0);
             this.pf.show()
             //await this.sleep(100);
-            await PixelFrame.sleep(100);
-            
+            await PixelFrame.sleep(75);            
         }
-        console.log('bericht werd getoond');
-        //callback.call(this);
-        //returnt true om aan te geven dat de zin werd fetoond
         return true;
     };
 }
