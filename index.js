@@ -2,21 +2,12 @@ var Marquee = require('./marquee');
 var Color = require('./color');
 var PIxelframe  =require('./PixelFrame');
 var LedBitMap = require('./ledBitmap');
-//Lijst die de berichten bijhoudt die getoondt zijn geweest
-var berichten = [];
 
 var marquee = new Marquee(new PIxelframe(16,16));
 var _MarqueeVrij = true;
 
 exports.tekstMarque =  async function (boodschap,letterkleur,achtergrondkleur) { 
-  //berichten.push(boodschap);
-  var _MarqueeVrij = false;
-  //console.log(boodschap + letterkleur + achtergrondkleur);  
-   //toonBoodschappen();
-  //var pf = new PIxelframe(16,16);
-  //var marquee = new Marquee(boodschap,new Color(255,0,0,20),new Color(0,0,255,20),pf);
-  //marquee.toonZin();  
-  //await marquee.toonZin(boodschap,letterkleur,achtergrondkleur); 
+  var _MarqueeVrij = false;  
   if(await marquee.toonZin(boodschap,letterkleur,achtergrondkleur) == true){
     return true;
   }
