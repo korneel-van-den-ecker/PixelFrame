@@ -1,4 +1,4 @@
-var Apa102spi = require('apa102-spi')
+var Apa102spi = require('./apa102-spi')
 var Color =require('./color');
 
 module.exports = class PixelFrame{
