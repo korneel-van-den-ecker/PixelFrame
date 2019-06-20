@@ -3,15 +3,17 @@ var rpio = require('rpio')
 rpio.init({
   gpiomem: false
 })
-
-var AantalNulBytesAchteraanErbij = 5;
+const aantalbytesAchteraan = 2;
 
 function Apa102spi (stringLength, clockDivider) {
   clockDivider = typeof clockDivider !== 'undefined' ? clockDivider : 200
   this.bufferLength = stringLength * 4
   this.writeBuffer = Buffer.alloc(this.bufferLength, 'E0000000', 'hex')
-  this.bufferLength += AantalNulBytesAchteraanErbij;
-  this.writeBuffer = Buffer.concat([Buffer.alloc(AantalNulBytesAchteraanErbij, '00000000', 'hex'), this.writeBuffer], this.bufferLength)
+  this.bufferLength += 4 ;
+  this.writeBuffer = Buffer.concat([Buffer.alloc(4, '00000000', 'hex'), this.writeBuffer], this.bufferLength)
+  //Nullen achteraan toevoegen 
+  this.bufferLength += aantalbytesAchteraan;
+  this.writeBuffer = Buffer.concat([this.writeBuffer,Buffer.alloc(aantalbytesAchteraan,'00000000','hex')],this.bufferLength);
   
   rpio.spiBegin()
   rpio.spiSetClockDivider(clockDivider)
@@ -31,7 +33,7 @@ Apa102spi.prototype.setLedColor = function (n, brightness, r, g, b) {
 }
 
 Apa102spi.prototype.setBuffer = function (ledBuffer) {
-  this.writeBuffer = Buffer.concat([Buffer.alloc(AantalNulBytesAchteraanErbij, '00000000', 'hex'), ledBuffer], this.bufferLength)
+  this.writeBuffer = Buffer.concat([Buffer.alloc(4, '00000000', 'hex'), ledBuffer,Buffer.alloc(aantalbytesAchteraan,'00000000','hex')], this.bufferLength)
 }
 
 module.exports = Apa102spi

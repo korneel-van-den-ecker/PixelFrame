@@ -19,7 +19,9 @@ console.log(berichtenLijst);
 //ToonberichtenLijs();
 
 var marquee = new Marquee(pf);  
-toonBoodschapAsync("jooo",letterKleur,achtergrondKleur);
+toonBoodschapAsync("reeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",letterKleur,achtergrondKleur);
+
+
 
 async function toonBoodschapAsync(boodschap,letterkleur,achtergrondkleur){
     if(await marquee.toonZin(boodschap,letterkleur,achtergrondkleur) == true){
