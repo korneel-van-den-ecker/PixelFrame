@@ -3,7 +3,7 @@ var rpio = require('rpio')
 rpio.init({
   gpiomem: false
 })
-const aantalbytesAchteraan = 2;
+const aantalbytesAchteraan = 16;
 
 function Apa102spi (stringLength, clockDivider) {
   clockDivider = typeof clockDivider !== 'undefined' ? clockDivider : 200

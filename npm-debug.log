@@ -1,0 +1,159 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'publish', 'pixelframe' ]
+2 info using npm@1.4.21
+3 info using node@v8.11.1
+4 verbose publish [ 'pixelframe' ]
+5 verbose cache add [ 'pixelframe', null ]
+6 verbose cache add name=undefined spec="pixelframe" args=["pixelframe",null]
+7 verbose parsed url Url {
+7 verbose parsed url   protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: 'pixelframe',
+7 verbose parsed url   path: 'pixelframe',
+7 verbose parsed url   href: 'pixelframe' }
+8 silly lockFile 31a5e163-pixelframe pixelframe
+9 verbose lock pixelframe /root/.npm/31a5e163-pixelframe.lock
+10 silly lockFile 31a5e163-pixelframe pixelframe
+11 silly lockFile 31a5e163-pixelframe pixelframe
+12 verbose addNamed [ 'pixelframe', '' ]
+13 verbose addNamed [ null, '*' ]
+14 silly lockFile e6d2a7a8-pixelframe pixelframe@
+15 verbose lock pixelframe@ /root/.npm/e6d2a7a8-pixelframe.lock
+16 silly addNameRange { name: 'pixelframe', range: '*', hasData: false }
+17 verbose request where is /pixelframe
+18 verbose request registry https://registry.npmjs.org/
+19 verbose request id adbea9523299ace0
+20 verbose url raw /pixelframe
+21 verbose url resolving [ 'https://registry.npmjs.org/', './pixelframe' ]
+22 verbose url resolved https://registry.npmjs.org/pixelframe
+23 verbose request where is https://registry.npmjs.org/pixelframe
+24 info trying registry request attempt 1 at 21:40:33
+25 http GET https://registry.npmjs.org/pixelframe
+26 http 200 https://registry.npmjs.org/pixelframe
+27 silly registry.get cb [ 200,
+27 silly registry.get   { date: 'Wed, 31 Jul 2019 20:40:33 GMT',
+27 silly registry.get     'content-type': 'application/json',
+27 silly registry.get     'transfer-encoding': 'chunked',
+27 silly registry.get     connection: 'close',
+27 silly registry.get     'set-cookie':
+27 silly registry.get      [ '__cfduid=d458da3397ff6a5942e28f7124f19b41f1564605633; expires=Thu, 30-Jul-20 20:40:33 GMT; path=/; domain=.npmjs.org; HttpOnly' ],
+27 silly registry.get     'cf-cache-status': 'HIT',
+27 silly registry.get     'cache-control': 'max-age=300',
+27 silly registry.get     'cf-ray': '4ff2635a1c51d4b4-BRU',
+27 silly registry.get     age: '220',
+27 silly registry.get     etag: 'W/"c227a6f62f29e8cdb3c7bdc7eb0449a6"',
+27 silly registry.get     'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+27 silly registry.get     'last-modified': 'Thu, 20 Jun 2019 19:34:42 GMT',
+27 silly registry.get     vary: 'accept-encoding, accept',
+27 silly registry.get     'x-amz-meta-rev': '38-fe692ba9c053ab6852450cabfaff6346',
+27 silly registry.get     server: 'cloudflare',
+27 silly registry.get     'content-encoding': 'gzip' } ]
+28 silly addNameRange number 2 { name: 'pixelframe', range: '*', hasData: true }
+29 silly addNameRange versions [ 'pixelframe',
+29 silly addNameRange   [ '1.0.0',
+29 silly addNameRange     '1.0.1',
+29 silly addNameRange     '1.0.2',
+29 silly addNameRange     '1.0.3',
+29 silly addNameRange     '1.0.4',
+29 silly addNameRange     '1.0.5',
+29 silly addNameRange     '1.0.6',
+29 silly addNameRange     '1.0.7',
+29 silly addNameRange     '1.0.8',
+29 silly addNameRange     '1.0.9',
+29 silly addNameRange     '1.0.10',
+29 silly addNameRange     '1.0.11',
+29 silly addNameRange     '1.0.12',
+29 silly addNameRange     '1.0.13',
+29 silly addNameRange     '1.0.14',
+29 silly addNameRange     '1.0.15',
+29 silly addNameRange     '1.0.16',
+29 silly addNameRange     '1.0.17',
+29 silly addNameRange     '1.0.18',
+29 silly addNameRange     '1.0.19',
+29 silly addNameRange     '1.0.20',
+29 silly addNameRange     '1.0.21',
+29 silly addNameRange     '1.0.22',
+29 silly addNameRange     '1.0.24',
+29 silly addNameRange     '1.0.25',
+29 silly addNameRange     '1.0.26',
+29 silly addNameRange     '1.0.27',
+29 silly addNameRange     '1.0.28',
+29 silly addNameRange     '1.1.0',
+29 silly addNameRange     '1.1.1',
+29 silly addNameRange     '1.1.2',
+29 silly addNameRange     '1.1.3',
+29 silly addNameRange     '1.1.4',
+29 silly addNameRange     '1.1.5',
+29 silly addNameRange     '1.1.6',
+29 silly addNameRange     '1.1.7',
+29 silly addNameRange     '1.1.8',
+29 silly addNameRange     '1.1.9' ] ]
+30 verbose addNamed [ 'pixelframe', '1.1.9' ]
+31 verbose addNamed [ '1.1.9', '1.1.9' ]
+32 silly lockFile c6e0ccf5-pixelframe-1-1-9 pixelframe@1.1.9
+33 verbose lock pixelframe@1.1.9 /root/.npm/c6e0ccf5-pixelframe-1-1-9.lock
+34 silly lockFile d941a8da--pixelframe-pixelframe-1-1-9-tgz https://registry.npmjs.org/pixelframe/-/pixelframe-1.1.9.tgz
+35 verbose lock https://registry.npmjs.org/pixelframe/-/pixelframe-1.1.9.tgz /root/.npm/d941a8da--pixelframe-pixelframe-1-1-9-tgz.lock
+36 verbose addRemoteTarball [ 'https://registry.npmjs.org/pixelframe/-/pixelframe-1.1.9.tgz',
+36 verbose addRemoteTarball   '9ef259030be9f1484d004ffbaac5e7a0143ff42c' ]
+37 info retry fetch attempt 1 at 21:40:33
+38 verbose fetch to= /tmp/npm-7149-jP_deYPt/registry.npmjs.org/pixelframe/-/pixelframe-1.1.9.tgz
+39 http GET https://registry.npmjs.org/pixelframe/-/pixelframe-1.1.9.tgz
+40 http 200 https://registry.npmjs.org/pixelframe/-/pixelframe-1.1.9.tgz
+41 silly lockFile d941a8da--pixelframe-pixelframe-1-1-9-tgz https://registry.npmjs.org/pixelframe/-/pixelframe-1.1.9.tgz
+42 silly lockFile d941a8da--pixelframe-pixelframe-1-1-9-tgz https://registry.npmjs.org/pixelframe/-/pixelframe-1.1.9.tgz
+43 silly lockFile c6e0ccf5-pixelframe-1-1-9 pixelframe@1.1.9
+44 silly lockFile c6e0ccf5-pixelframe-1-1-9 pixelframe@1.1.9
+45 silly lockFile e6d2a7a8-pixelframe pixelframe@
+46 silly lockFile e6d2a7a8-pixelframe pixelframe@
+47 silly publish { name: 'pixelframe',
+47 silly publish   version: '1.1.9',
+47 silly publish   description: 'Project Embedded system PixelFrame based on APA102C',
+47 silly publish   main: 'index.js',
+47 silly publish   scripts: { test: 'echo "Error: no test specified" && exit 1' },
+47 silly publish   author: { name: 'Korneel Van den Ecker' },
+47 silly publish   license: 'ISC',
+47 silly publish   repository:
+47 silly publish    { type: 'git',
+47 silly publish      url: 'git+https://github.com/koranus/PixelFrame.git' },
+47 silly publish   keywords: [ 'APA102C', 'LEDFrame' ],
+47 silly publish   bugs: { url: 'https://github.com/koranus/PixelFrame/issues' },
+47 silly publish   homepage: 'https://github.com/koranus/PixelFrame#readme',
+47 silly publish   gitHead: 'bb99690e306cd4883f7ae20d6f4e2c0be1c78f56',
+47 silly publish   _id: 'pixelframe@1.1.9',
+47 silly publish   _shasum: '9ef259030be9f1484d004ffbaac5e7a0143ff42c',
+47 silly publish   _from: 'pixelframe@',
+47 silly publish   _npmVersion: '1.4.21',
+47 silly publish   _npmUser: { name: 'koranus', email: 'korneel_van_den_ecker@hotmail.com' },
+47 silly publish   maintainers:
+47 silly publish    [ { name: 'koranus', email: 'korneel_van_den_ecker@hotmail.com' } ],
+47 silly publish   dist:
+47 silly publish    { shasum: '9ef259030be9f1484d004ffbaac5e7a0143ff42c',
+47 silly publish      tarball: 'https://registry.npmjs.org/pixelframe/-/pixelframe-1.1.9.tgz',
+47 silly publish      integrity: 'sha512-cDURtyyIm6JLmZGdaAR8uUwJuVzhQHane5ohI1PU+uIplq4dPYjtwv6/ZIrGFBCNCvh8HP9izx7E/MjpEhlrlQ==',
+47 silly publish      fileCount: 28,
+47 silly publish      unpackedSize: 127292,
+47 silly publish      'npm-signature': '-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdC9/OCRA9TVsSAnZWagAA3lsQAJjHuG9tlvrpocxX6TN3\n7vojpyRUelx59UUGIdH7z0vFtFs36gxOVZ/Pleyd2W5yrmn5fSLDNAaIkK0/\nSXQ9qFOMV5Hj0UVosL+OV9HoQ7UyAv37rMlqoHRqzL386i/QCQRhMYdMrjZO\noPj+YyXFKwloQ9Q2wXMmJFHunnfZ5GA42ALLtXd1Sb4BzinOe31Tuy+4Dv68\n5Z29YkzWrFYC+yBglqQbHvxGX690j5UXPLIsdLB+mA90AXitxQkmLR6fI2X2\nrSbmMToL1iC4Ecpc3YRC+TlviJbDIenuw+E7VbNQJv+X67uJhlUAnbp2vCt1\n2Id9yHXBZjgd4nmGldMPzeTE6e16iQXUnoOoZ+TOdlypqznMnFlQJsRg4e5V\n/quPKHK+Enr7kEln5HQovZfLi9rOC4kQF7a75+3erUvwuzrY9eEodVVc0a7s\nDx+DIpOswHbDgd1CDjmxUajvElx9Sb3Jksm2iJWzoxGUwdVb5PNzoahi1DM+\nDJc5QOnV221jNUmSZ/QV+HhmZw5R1+pVv1RJ1IP7TcelKNccjLd/+46pkN2l\ntSH28KFxUWxgqdQm5cZ1x3AVNs65JxRf+SHJs5e01rVbe3Mlc2c+kmcSdotH\nyMtrxqB2jnBPvLzyrWm2fiATcyQYHQURSc6OeN8UBwR1NeZds5YH3QHfiwE5\njyEC\r\n=rr8a\r\n-----END PGP SIGNATURE-----\r\n' },
+47 silly publish   directories: {},
+47 silly publish   _npmOperationalInternal:
+47 silly publish    { host: 's3://npm-registry-packages',
+47 silly publish      tmp: 'tmp/pixelframe_1.1.9_1561059277176_0.350058828888564' },
+47 silly publish   _hasShrinkwrap: false,
+47 silly publish   _resolved: 'https://registry.npmjs.org/pixelframe/-/pixelframe-1.1.9.tgz' }
+48 info prepublish pixelframe@1.1.9
+49 error need auth auth and email required for publishing
+49 error need auth You need to authorize this machine using `npm adduser`
+50 error System Linux 4.14.98-v7+
+51 error command "/usr/bin/node" "/usr/bin/npm" "publish" "pixelframe"
+52 error cwd /home/pi/Development/PixelFrame
+53 error node -v v8.11.1
+54 error npm -v 1.4.21
+55 error code ENEEDAUTH
+56 verbose exit [ 1, true ]

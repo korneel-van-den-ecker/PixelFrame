@@ -5,7 +5,7 @@ module.exports = class PixelFrame{
   constructor(hoogte,breedte){
     this.breedte = breedte;
     this.hoogte = hoogte;
-    this.ledDriver = new Apa102spi(breedte*hoogte,50);
+    this.ledDriver = new Apa102spi(breedte*hoogte,1200);
   }
 
   //Kleur hele frame in een bepaalde kleur
