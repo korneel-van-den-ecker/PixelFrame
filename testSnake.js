@@ -18,9 +18,12 @@ enkeleSlangTest();
 
 async function enkeleSlangTest(){
     while(1){
-        var snake = new Snake(pf,4,0,new Color(0,255,0,1));
-        snake.move(Move.DOWN,false,true);
-        //pf.show();   
+        var snake = new Snake(pf,8,0,new Color(0,255,255,1));
+        snake.move(Move.RIGHT,true,true);
+        pf.show();   
+        await sleep(500); 
+        snake.move(Move.UP,true,true);
+        pf.show()
         await sleep(500); 
     }
 }

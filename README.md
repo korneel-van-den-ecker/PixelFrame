@@ -5,4 +5,7 @@ de andere klassen makken gebruik van Pixelframe.
 
 Marquee: deze Klassen toont een tekst die over de pixelframe schuift. 
 
+sudo npm install -g --unsafe-perm --verbose rpio
+
+
 

@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/koranus/PixelFrame/issues"
   },
-  "homepage": "https://github.com/koranus/PixelFrame#readme"
+  "homepage": "https://github.com/koranus/PixelFrame#readme",
+  "dependencies": {
+    "apa102-spi": "0.0.6"
+  }
 }

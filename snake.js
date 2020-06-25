@@ -9,7 +9,7 @@ const Move = {
     LEFT: 3
 }
 
-module.exports = class Marquee{
+module.exports = class Snake{
     //DEze klasse heeft een andere implementatie dan ledbitmap werk met een lijst van coordienaten 
     constructor(pixelframe,startLengte,StartPositieHoogte,kleur){
         this.pf = pixelframe;

@@ -13,7 +13,7 @@ module.exports = class PixelFrame{
   constructor(hoogte,breedte){
     this.breedte = breedte;
     this.hoogte = hoogte;
-    this.ledDriver = new Apa102spi(breedte*hoogte,800);
+    this.ledDriver = new Apa102spi(breedte*hoogte,200);
   }
 
   kleurVolledigFrameMetWiel(wielwaarde,brightness){
