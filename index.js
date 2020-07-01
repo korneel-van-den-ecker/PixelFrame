@@ -7,14 +7,8 @@ exports.tekstMarque = function (boodschap) {
   var pf = new PIxelframe(16, 16);
   var marquee = new Marquee(
     boodschap.tekst,
-    new Color(boodschap.tekstKleur.r,
-      boodschap.tekstKleur.g,
-      boodschap.tekstKleur.b,
-      boodschap.tekstKleur.brightness),
-    new Color(boodschap.achertergrondkleur.r,
-      boodschap.achertergrondkleur.g,
-      boodschap.achertergrondkleur.b,
-      boodschap.achertergrondkleur.brightness),
+    new Color(boodschap.tekstKleur),
+    new Color(boodschap.achertergrondkleur),
     pf);
   marquee.toonZin();
 }
@@ -36,8 +30,8 @@ const bsc = { tekstKleur: { r: 0, g: 255, b: 255, brightness: 5 } }
 
 const bscc = {
   tekst: "Test MessageTest MessageTest MessageTest MessageTest MessageTest MessageTest MessageTest Messagev",
-  tekstKleur: { r: 0, g: 0, b: 255, brightness: "5" },
-  achertergrondkleur: { r: 0, g: 255, b: 0, brightness: "5" },
+  tekstKleur: { r: 0, g: 0, b: 255, bright: "5" },
+  achertergrondkleur: { r: 0, g: 255, b: 0, bright: "5" },
 }
 
 this.tekstMarque(bscc)
