@@ -22,5 +22,8 @@
   "homepage": "https://github.com/koranus/PixelFrame#readme",
   "dependencies": {
     "apa102-spi": "0.0.6"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
   }
 }
