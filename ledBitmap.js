@@ -50,6 +50,7 @@ module.exports = class LedBitmap{
         return this;
     };
 
+
     AddLedBitmapToLedBitmap(ledBitmap,ankerHoogte,ankerBreedte){
         if(ledBitmap != undefined){
             for(var i = 0; i < ledBitmap.hoogte; i++){    
@@ -60,6 +61,7 @@ module.exports = class LedBitmap{
             };
         }            
     }
+
 
     GetFragmentOfLedBitmap(ankerHoogte, ankerBreedte, breedte, hoogte){
         var ledBitmap = new LedBitmap(hoogte,breedte,this.achtergrondKleur,this.afbeeldingsKleur);

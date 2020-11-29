@@ -5,6 +5,7 @@ var LedBitMap = require('./ledBitmap');
 
 exports.tekstMarque = function (boodschap) {
   var pf = new PIxelframe(16, 16);
+  
   var marquee = new Marquee(
     boodschap.tekst,
     new Color(boodschap.tekstKleur),
@@ -34,4 +35,4 @@ const bscc = {
   achertergrondkleur: { r: 0, g: 255, b: 0, bright: "5" },
 }
 
-this.tekstMarque(bscc)
+//this.tekstMarque(bscc)
